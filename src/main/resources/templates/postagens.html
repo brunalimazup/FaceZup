@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html xmlns="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div>
+        <form method="POST">
+            Link da foto: <input type="text" name="foto">
+            Usuario: <input type="text" name="usuario">
+            Postagem: <input type="text" name="postagem">
+            <button type="submit">Compartilhar</button>
+        </form>
+    </div>
+
+
+    <div>
+        <div th:each="postagem : ${postagens}">
+            <img scr="#" th:attr=" src=@{${postagem.foto}}"> 
+            <h3 th:text="${postagem.usuario}"></h3>
+            <p th:text="${postagem.postagem}"> </p>
+        </div>
+    </div>
+    
+</body>
+</html>
