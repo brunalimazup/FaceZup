@@ -41,21 +41,22 @@ public class PostagemRestController {
 	}
 
 	@PostMapping
-	public ResponseEntity<PostagemModel> criarPostagem(@RequestBody PostagemModel postagem) {
+	public ResponseEntity<PostagemModel> salvarPostagem(@RequestBody PostagemModel postagem) {
 		postagemService.salvarPostagem(postagem);
 		return ResponseEntity.status(HttpStatus.CREATED).body(postagem);
-
 	}
-	
+
 	@PutMapping("/{id}")
-	public ResponseEntity<PostagemModel> atualizarPostagem (@PathVariable int id,@Valid @RequestBody PostagemModel postagem) {
+	public ResponseEntity<PostagemModel> atualizarPostagem(@PathVariable int id,
+			@Valid @RequestBody PostagemModel postagem) {
 		postagemService.atualizarMensagem(id, postagem);
 		return ResponseEntity.ok(postagem);
-}
-	@DeleteMapping ("/{id}")
-	public ResponseEntity apagarPostagem(@PathVariable int id) {
+	}
+
+	@DeleteMapping("/{id}")
+	public ResponseEntity<?> apagarPostagem(@PathVariable int id) {
 		postagemService.apagarPostagem(id);
 		return ResponseEntity.ok().build();
 	}
-	
+
 }

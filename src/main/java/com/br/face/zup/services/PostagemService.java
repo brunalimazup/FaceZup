@@ -16,14 +16,15 @@ public class PostagemService {
 		return faceRepository.findAll();
 	}
 
-	public void salvarPostagem(PostagemModel postagemModel) {
-		faceRepository.save(postagemModel);
+	public PostagemModel salvarPostagem(PostagemModel postagemModel) {
+		return faceRepository.save(postagemModel);
 	}
-	public void apagarPostagem(int id) {
+	public PostagemModel apagarPostagem(int id) {
 		faceRepository.deleteById(id);
+		return null;
 	}
-	public void atualizarMensagem(int id, PostagemModel postagem) {
+	public PostagemModel atualizarMensagem(int id, PostagemModel postagem) {
 		postagem.setId(id);
-	faceRepository.save(postagem);
+	return faceRepository.save(postagem);
 	}
 }
